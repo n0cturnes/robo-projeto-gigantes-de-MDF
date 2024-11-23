@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Codigo_GiganteDeMdf: Referência do Arquivo source/doxy.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Codigo_GiganteDeMdf<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">O código controla um robô de MDF, gerenciando a interação com motores e LEDs por meio de interrupções. Ele monitora a entrada do ADC para detectar mudanças de estado, gerenciando vidas e invulnerabilidade. Além disso, controla o movimento e os LEDs com comandos recebidos via USART e ajustes temporais de invulnerabilidade e efeitos visuais.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo doxy.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;avr/interrupt.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a43bafb28b29491ec7f871319b5a3b2f8" id="r_a43bafb28b29491ec7f871319b5a3b2f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>&#160;&#160;&#160;16000000UL</td></tr>
+<tr class="separator:a43bafb28b29491ec7f871319b5a3b2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4679d8ea8690999a6c6c7c0cb245c879" id="r_a4679d8ea8690999a6c6c7c0cb245c879"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4679d8ea8690999a6c6c7c0cb245c879">THRESHOLD</a>&#160;&#160;&#160;950</td></tr>
+<tr class="separator:a4679d8ea8690999a6c6c7c0cb245c879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51fd859df7f54aaa2ef64c36c97b548a" id="r_a51fd859df7f54aaa2ef64c36c97b548a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51fd859df7f54aaa2ef64c36c97b548a">LDR_PIN</a>&#160;&#160;&#160;PC1</td></tr>
+<tr class="separator:a51fd859df7f54aaa2ef64c36c97b548a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54688bb37ad350a2fc62a740daf24e07" id="r_a54688bb37ad350a2fc62a740daf24e07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54688bb37ad350a2fc62a740daf24e07">TEMPO_INVULNERABILIDADE</a>&#160;&#160;&#160;5000</td></tr>
+<tr class="separator:a54688bb37ad350a2fc62a740daf24e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ec6c3e936dcaccf4bc733c26bbc32b" id="r_ae2ec6c3e936dcaccf4bc733c26bbc32b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2ec6c3e936dcaccf4bc733c26bbc32b">BLINK_INTERVAL</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:ae2ec6c3e936dcaccf4bc733c26bbc32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a53a6c94a70cc286e300a0ea8f46ba4" id="r_a6a53a6c94a70cc286e300a0ea8f46ba4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a53a6c94a70cc286e300a0ea8f46ba4">USART_BAUDRATE</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memdesc:a6a53a6c94a70cc286e300a0ea8f46ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurações do baudrate da USART.  <br /></td></tr>
+<tr class="separator:a6a53a6c94a70cc286e300a0ea8f46ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a9db3464aa99027082d9daf5f43a95d" id="r_a7a9db3464aa99027082d9daf5f43a95d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a9db3464aa99027082d9daf5f43a95d">BAUD_PRESCALER</a>&#160;&#160;&#160;(((<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a> / (<a class="el" href="#a6a53a6c94a70cc286e300a0ea8f46ba4">USART_BAUDRATE</a> * 16UL))) - 1)</td></tr>
+<tr class="separator:a7a9db3464aa99027082d9daf5f43a95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c542e8ed07cf102e54e8e3bfae926b7" id="r_a4c542e8ed07cf102e54e8e3bfae926b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c542e8ed07cf102e54e8e3bfae926b7">ASYNCHRONOUS</a>&#160;&#160;&#160;(0 &lt;&lt; UMSEL00)</td></tr>
+<tr class="memdesc:a4c542e8ed07cf102e54e8e3bfae926b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura o modo de operação da USART.  <br /></td></tr>
+<tr class="separator:a4c542e8ed07cf102e54e8e3bfae926b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5c8ab57c190a6522ccdbf0ed7577da" id="r_abd5c8ab57c190a6522ccdbf0ed7577da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd5c8ab57c190a6522ccdbf0ed7577da">DISABLED</a>&#160;&#160;&#160;(0 &lt;&lt; UPM00)</td></tr>
+<tr class="memdesc:abd5c8ab57c190a6522ccdbf0ed7577da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configura o tipo de paridade para a USART.  <br /></td></tr>
+<tr class="separator:abd5c8ab57c190a6522ccdbf0ed7577da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a963ff1432e4cfbdd83e74045ef142" id="r_a30a963ff1432e4cfbdd83e74045ef142"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30a963ff1432e4cfbdd83e74045ef142">EVEN_PARITY</a>&#160;&#160;&#160;(2 &lt;&lt; UPM00)</td></tr>
+<tr class="separator:a30a963ff1432e4cfbdd83e74045ef142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898d7631f24dd6b1deebf808a2214ea2" id="r_a898d7631f24dd6b1deebf808a2214ea2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a898d7631f24dd6b1deebf808a2214ea2">ODD_PARITY</a>&#160;&#160;&#160;(3 &lt;&lt; UPM00)</td></tr>
+<tr class="separator:a898d7631f24dd6b1deebf808a2214ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce8f2de69cccb63ea888c72cd7507fd" id="r_a9ce8f2de69cccb63ea888c72cd7507fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ce8f2de69cccb63ea888c72cd7507fd">PARITY_MODE</a>&#160;&#160;&#160;<a class="el" href="#abd5c8ab57c190a6522ccdbf0ed7577da">DISABLED</a></td></tr>
+<tr class="separator:a9ce8f2de69cccb63ea888c72cd7507fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a850bc72064810c2233f2b2970995ee01" id="r_a850bc72064810c2233f2b2970995ee01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a850bc72064810c2233f2b2970995ee01">ONE_BIT</a>&#160;&#160;&#160;(0 &lt;&lt; USBS0)</td></tr>
+<tr class="memdesc:a850bc72064810c2233f2b2970995ee01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuração do número de bits de parada para a USART.  <br /></td></tr>
+<tr class="separator:a850bc72064810c2233f2b2970995ee01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a276f76205265ca904e66cac65570f98c" id="r_a276f76205265ca904e66cac65570f98c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a276f76205265ca904e66cac65570f98c">TWO_BIT</a>&#160;&#160;&#160;(1 &lt;&lt; USBS0)</td></tr>
+<tr class="separator:a276f76205265ca904e66cac65570f98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c3743efc15a1320478871dc92998bd" id="r_ad0c3743efc15a1320478871dc92998bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c3743efc15a1320478871dc92998bd">STOP_BIT</a>&#160;&#160;&#160;<a class="el" href="#a850bc72064810c2233f2b2970995ee01">ONE_BIT</a></td></tr>
+<tr class="separator:ad0c3743efc15a1320478871dc92998bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08bc957111befba5f77b2e8dd7d16487" id="r_a08bc957111befba5f77b2e8dd7d16487"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08bc957111befba5f77b2e8dd7d16487">FIVE_BIT</a>&#160;&#160;&#160;(0 &lt;&lt; UCSZ00)</td></tr>
+<tr class="memdesc:a08bc957111befba5f77b2e8dd7d16487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seleção de quantidade de bits para transmissão de dados via USART.  <br /></td></tr>
+<tr class="separator:a08bc957111befba5f77b2e8dd7d16487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2babb600d751a2ace38a0450fad0d72a" id="r_a2babb600d751a2ace38a0450fad0d72a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2babb600d751a2ace38a0450fad0d72a">SIX_BIT</a>&#160;&#160;&#160;(1 &lt;&lt; UCSZ00)</td></tr>
+<tr class="separator:a2babb600d751a2ace38a0450fad0d72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471e674a376711f389aafd621f8f9f7e" id="r_a471e674a376711f389aafd621f8f9f7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a471e674a376711f389aafd621f8f9f7e">SEVEN_BIT</a>&#160;&#160;&#160;(2 &lt;&lt; UCSZ00)</td></tr>
+<tr class="separator:a471e674a376711f389aafd621f8f9f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31934ce51c0041a25afde074b17c3ac0" id="r_a31934ce51c0041a25afde074b17c3ac0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31934ce51c0041a25afde074b17c3ac0">EIGHT_BIT</a>&#160;&#160;&#160;(3 &lt;&lt; UCSZ00)</td></tr>
+<tr class="separator:a31934ce51c0041a25afde074b17c3ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29808a8317ec9d7a44c732f4998aed6a" id="r_a29808a8317ec9d7a44c732f4998aed6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29808a8317ec9d7a44c732f4998aed6a">DATA_BIT</a>&#160;&#160;&#160;<a class="el" href="#a31934ce51c0041a25afde074b17c3ac0">EIGHT_BIT</a></td></tr>
+<tr class="separator:a29808a8317ec9d7a44c732f4998aed6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34901744643d83cff09d9e727d652613" id="r_a34901744643d83cff09d9e727d652613"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34901744643d83cff09d9e727d652613">RX_COMPLETE_INTERRUPT</a>&#160;&#160;&#160;(1 &lt;&lt; RXCIE0)</td></tr>
+<tr class="memdesc:a34901744643d83cff09d9e727d652613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configurações de interrupções da USART.  <br /></td></tr>
+<tr class="separator:a34901744643d83cff09d9e727d652613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8a218998fd7a223d3a907ea2a16a81" id="r_a5d8a218998fd7a223d3a907ea2a16a81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8a218998fd7a223d3a907ea2a16a81">DATA_REGISTER_EMPTY_INTERRUPT</a>&#160;&#160;&#160;(1 &lt;&lt; UDRIE0)</td></tr>
+<tr class="separator:a5d8a218998fd7a223d3a907ea2a16a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:aa94313b5d741dbccb192d9960411dfe8" id="r_aa94313b5d741dbccb192d9960411dfe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa94313b5d741dbccb192d9960411dfe8">TIMER0_init</a> ()</td></tr>
+<tr class="memdesc:aa94313b5d741dbccb192d9960411dfe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o Timer0 para gerar interrupções a cada 1 ms.  <br /></td></tr>
+<tr class="separator:aa94313b5d741dbccb192d9960411dfe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0246bef1b90eea7a13079a937b5d28bc" id="r_a0246bef1b90eea7a13079a937b5d28bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0246bef1b90eea7a13079a937b5d28bc">USART_INIT</a> ()</td></tr>
+<tr class="memdesc:a0246bef1b90eea7a13079a937b5d28bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa a comunicação USART para transmissão e recepção serial.  <br /></td></tr>
+<tr class="separator:a0246bef1b90eea7a13079a937b5d28bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303f5f7687eb4a220ac1f1413d8822ef" id="r_a303f5f7687eb4a220ac1f1413d8822ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a303f5f7687eb4a220ac1f1413d8822ef">ADC_INIT</a> ()</td></tr>
+<tr class="memdesc:a303f5f7687eb4a220ac1f1413d8822ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o ADC para leitura do valor do LDR.  <br /></td></tr>
+<tr class="separator:a303f5f7687eb4a220ac1f1413d8822ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc9ac8b8950089dd783f6e4d1b66648" id="r_abcc9ac8b8950089dd783f6e4d1b66648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcc9ac8b8950089dd783f6e4d1b66648">start_ADC_conversion</a> ()</td></tr>
+<tr class="memdesc:abcc9ac8b8950089dd783f6e4d1b66648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia a conversão do ADC.  <br /></td></tr>
+<tr class="separator:abcc9ac8b8950089dd783f6e4d1b66648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17cff79cc21cc8a442ec2e9b860ad0be" id="r_a17cff79cc21cc8a442ec2e9b860ad0be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17cff79cc21cc8a442ec2e9b860ad0be">apagar_led</a> ()</td></tr>
+<tr class="memdesc:a17cff79cc21cc8a442ec2e9b860ad0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apaga o LED correspondente ao número de vidas restantes.  <br /></td></tr>
+<tr class="separator:a17cff79cc21cc8a442ec2e9b860ad0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab635a1ffb9027052289e7db2681bf426" id="r_ab635a1ffb9027052289e7db2681bf426"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab635a1ffb9027052289e7db2681bf426">reset_leds</a> ()</td></tr>
+<tr class="memdesc:ab635a1ffb9027052289e7db2681bf426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseta os LEDs para o estado inicial.  <br /></td></tr>
+<tr class="separator:ab635a1ffb9027052289e7db2681bf426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função principal do programa.  <br /></td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a642a4edcbf8a0eb8cacf9001378d4356" id="r_a642a4edcbf8a0eb8cacf9001378d4356"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a642a4edcbf8a0eb8cacf9001378d4356">USART_ReceiveBuffer</a></td></tr>
+<tr class="separator:a642a4edcbf8a0eb8cacf9001378d4356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d6b71775ef8d927afa07f53122213e" id="r_a91d6b71775ef8d927afa07f53122213e"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91d6b71775ef8d927afa07f53122213e">vidas</a> = 3</td></tr>
+<tr class="separator:a91d6b71775ef8d927afa07f53122213e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05dcb0c71c08599b3f4eb612dab884d6" id="r_a05dcb0c71c08599b3f4eb612dab884d6"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05dcb0c71c08599b3f4eb612dab884d6">contador</a> = 0</td></tr>
+<tr class="separator:a05dcb0c71c08599b3f4eb612dab884d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a509223ea132f4712b0606c9693ade918" id="r_a509223ea132f4712b0606c9693ade918"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509223ea132f4712b0606c9693ade918">invulneravel</a> = 0</td></tr>
+<tr class="separator:a509223ea132f4712b0606c9693ade918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac06bc193fb94cfa613fb8aae8cf246ea" id="r_ac06bc193fb94cfa613fb8aae8cf246ea"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac06bc193fb94cfa613fb8aae8cf246ea">contador_laser</a> = 0</td></tr>
+<tr class="separator:ac06bc193fb94cfa613fb8aae8cf246ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a4c542e8ed07cf102e54e8e3bfae926b7" name="a4c542e8ed07cf102e54e8e3bfae926b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c542e8ed07cf102e54e8e3bfae926b7">&#9670;&#160;</a></span>ASYNCHRONOUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ASYNCHRONOUS&#160;&#160;&#160;(0 &lt;&lt; UMSEL00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura o modo de operação da USART. </p>
+<p>Modo assíncrono para a USART </p>
+
+</div>
+</div>
+<a id="a7a9db3464aa99027082d9daf5f43a95d" name="a7a9db3464aa99027082d9daf5f43a95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a9db3464aa99027082d9daf5f43a95d">&#9670;&#160;</a></span>BAUD_PRESCALER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUD_PRESCALER&#160;&#160;&#160;(((<a class="el" href="#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a> / (<a class="el" href="#a6a53a6c94a70cc286e300a0ea8f46ba4">USART_BAUDRATE</a> * 16UL))) - 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cálculo do prescaler para a USART </p>
+
+</div>
+</div>
+<a id="ae2ec6c3e936dcaccf4bc733c26bbc32b" name="ae2ec6c3e936dcaccf4bc733c26bbc32b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ec6c3e936dcaccf4bc733c26bbc32b">&#9670;&#160;</a></span>BLINK_INTERVAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLINK_INTERVAL&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Intervalo de piscada do laser (em milissegundos) </p>
+
+</div>
+</div>
+<a id="a29808a8317ec9d7a44c732f4998aed6a" name="a29808a8317ec9d7a44c732f4998aed6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29808a8317ec9d7a44c732f4998aed6a">&#9670;&#160;</a></span>DATA_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATA_BIT&#160;&#160;&#160;<a class="el" href="#a31934ce51c0041a25afde074b17c3ac0">EIGHT_BIT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Utiliza 8 bits de dados </p>
+
+</div>
+</div>
+<a id="a5d8a218998fd7a223d3a907ea2a16a81" name="a5d8a218998fd7a223d3a907ea2a16a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8a218998fd7a223d3a907ea2a16a81">&#9670;&#160;</a></span>DATA_REGISTER_EMPTY_INTERRUPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATA_REGISTER_EMPTY_INTERRUPT&#160;&#160;&#160;(1 &lt;&lt; UDRIE0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interrupção do registro de dados vazio </p>
+
+</div>
+</div>
+<a id="abd5c8ab57c190a6522ccdbf0ed7577da" name="abd5c8ab57c190a6522ccdbf0ed7577da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd5c8ab57c190a6522ccdbf0ed7577da">&#9670;&#160;</a></span>DISABLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DISABLED&#160;&#160;&#160;(0 &lt;&lt; UPM00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configura o tipo de paridade para a USART. </p>
+<p>Sem paridade </p>
+
+</div>
+</div>
+<a id="a31934ce51c0041a25afde074b17c3ac0" name="a31934ce51c0041a25afde074b17c3ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31934ce51c0041a25afde074b17c3ac0">&#9670;&#160;</a></span>EIGHT_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EIGHT_BIT&#160;&#160;&#160;(3 &lt;&lt; UCSZ00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>8 bits de dados </p>
+
+</div>
+</div>
+<a id="a30a963ff1432e4cfbdd83e74045ef142" name="a30a963ff1432e4cfbdd83e74045ef142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a963ff1432e4cfbdd83e74045ef142">&#9670;&#160;</a></span>EVEN_PARITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EVEN_PARITY&#160;&#160;&#160;(2 &lt;&lt; UPM00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Paridade par </p>
+
+</div>
+</div>
+<a id="a43bafb28b29491ec7f871319b5a3b2f8" name="a43bafb28b29491ec7f871319b5a3b2f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bafb28b29491ec7f871319b5a3b2f8">&#9670;&#160;</a></span>F_CPU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define F_CPU&#160;&#160;&#160;16000000UL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Frequência da CPU em Hz (16 MHz) </p>
+
+</div>
+</div>
+<a id="a08bc957111befba5f77b2e8dd7d16487" name="a08bc957111befba5f77b2e8dd7d16487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08bc957111befba5f77b2e8dd7d16487">&#9670;&#160;</a></span>FIVE_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIVE_BIT&#160;&#160;&#160;(0 &lt;&lt; UCSZ00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seleção de quantidade de bits para transmissão de dados via USART. </p>
+<p>5 bits de dados </p>
+
+</div>
+</div>
+<a id="a51fd859df7f54aaa2ef64c36c97b548a" name="a51fd859df7f54aaa2ef64c36c97b548a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51fd859df7f54aaa2ef64c36c97b548a">&#9670;&#160;</a></span>LDR_PIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR_PIN&#160;&#160;&#160;PC1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pino do LDR (porta analógica PC1) </p>
+
+</div>
+</div>
+<a id="a898d7631f24dd6b1deebf808a2214ea2" name="a898d7631f24dd6b1deebf808a2214ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a898d7631f24dd6b1deebf808a2214ea2">&#9670;&#160;</a></span>ODD_PARITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ODD_PARITY&#160;&#160;&#160;(3 &lt;&lt; UPM00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Paridade ímpar </p>
+
+</div>
+</div>
+<a id="a850bc72064810c2233f2b2970995ee01" name="a850bc72064810c2233f2b2970995ee01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a850bc72064810c2233f2b2970995ee01">&#9670;&#160;</a></span>ONE_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ONE_BIT&#160;&#160;&#160;(0 &lt;&lt; USBS0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuração do número de bits de parada para a USART. </p>
+<p>1 bit de parada </p>
+
+</div>
+</div>
+<a id="a9ce8f2de69cccb63ea888c72cd7507fd" name="a9ce8f2de69cccb63ea888c72cd7507fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce8f2de69cccb63ea888c72cd7507fd">&#9670;&#160;</a></span>PARITY_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PARITY_MODE&#160;&#160;&#160;<a class="el" href="#abd5c8ab57c190a6522ccdbf0ed7577da">DISABLED</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Paridade desativada </p>
+
+</div>
+</div>
+<a id="a34901744643d83cff09d9e727d652613" name="a34901744643d83cff09d9e727d652613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34901744643d83cff09d9e727d652613">&#9670;&#160;</a></span>RX_COMPLETE_INTERRUPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RX_COMPLETE_INTERRUPT&#160;&#160;&#160;(1 &lt;&lt; RXCIE0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configurações de interrupções da USART. </p>
+<p>Interrupção de recepção completa </p>
+
+</div>
+</div>
+<a id="a471e674a376711f389aafd621f8f9f7e" name="a471e674a376711f389aafd621f8f9f7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471e674a376711f389aafd621f8f9f7e">&#9670;&#160;</a></span>SEVEN_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SEVEN_BIT&#160;&#160;&#160;(2 &lt;&lt; UCSZ00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>7 bits de dados </p>
+
+</div>
+</div>
+<a id="a2babb600d751a2ace38a0450fad0d72a" name="a2babb600d751a2ace38a0450fad0d72a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2babb600d751a2ace38a0450fad0d72a">&#9670;&#160;</a></span>SIX_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SIX_BIT&#160;&#160;&#160;(1 &lt;&lt; UCSZ00)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>6 bits de dados </p>
+
+</div>
+</div>
+<a id="ad0c3743efc15a1320478871dc92998bd" name="ad0c3743efc15a1320478871dc92998bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c3743efc15a1320478871dc92998bd">&#9670;&#160;</a></span>STOP_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STOP_BIT&#160;&#160;&#160;<a class="el" href="#a850bc72064810c2233f2b2970995ee01">ONE_BIT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Seleção de 1 bit de parada </p>
+
+</div>
+</div>
+<a id="a54688bb37ad350a2fc62a740daf24e07" name="a54688bb37ad350a2fc62a740daf24e07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54688bb37ad350a2fc62a740daf24e07">&#9670;&#160;</a></span>TEMPO_INVULNERABILIDADE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPO_INVULNERABILIDADE&#160;&#160;&#160;5000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tempo de invulnerabilidade após ser atingido (em milissegundos) </p>
+
+</div>
+</div>
+<a id="a4679d8ea8690999a6c6c7c0cb245c879" name="a4679d8ea8690999a6c6c7c0cb245c879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4679d8ea8690999a6c6c7c0cb245c879">&#9670;&#160;</a></span>THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESHOLD&#160;&#160;&#160;950</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Limiar de luz para o LDR (0 a 1023 para 10 bits) </p>
+
+</div>
+</div>
+<a id="a276f76205265ca904e66cac65570f98c" name="a276f76205265ca904e66cac65570f98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a276f76205265ca904e66cac65570f98c">&#9670;&#160;</a></span>TWO_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TWO_BIT&#160;&#160;&#160;(1 &lt;&lt; USBS0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>2 bits de parada </p>
+
+</div>
+</div>
+<a id="a6a53a6c94a70cc286e300a0ea8f46ba4" name="a6a53a6c94a70cc286e300a0ea8f46ba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a53a6c94a70cc286e300a0ea8f46ba4">&#9670;&#160;</a></span>USART_BAUDRATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USART_BAUDRATE&#160;&#160;&#160;9600</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configurações do baudrate da USART. </p>
+<p>Baudrate desejado para comunicação serial </p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="a303f5f7687eb4a220ac1f1413d8822ef" name="a303f5f7687eb4a220ac1f1413d8822ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303f5f7687eb4a220ac1f1413d8822ef">&#9670;&#160;</a></span>ADC_INIT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ADC_INIT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa o ADC para leitura do valor do LDR. </p>
+<p>Configura o ADC para utilizar AVCC como referência e o pino LDR (PC1) como entrada. Habilita a interrupção de conversão do ADC e configura o prescaler de 64. </p>
+<p>&lt; Configura a referência AVCC e o pino do LDR</p>
+<p>&lt; Habilita o ADC e a interrupção</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>                {</div>
+<div class="line"><span class="lineno">  105</span>    ADMUX = (1 &lt;&lt; REFS0) | <a class="code hl_define" href="#a51fd859df7f54aaa2ef64c36c97b548a">LDR_PIN</a>; </div>
+<div class="line"><span class="lineno">  106</span>    ADCSRA = (1 &lt;&lt; ADEN) | (1 &lt;&lt; ADIE) | (1 &lt;&lt; ADPS2) | (1 &lt;&lt; ADPS1); </div>
+<div class="line"><span class="lineno">  107</span>}</div>
+<div class="ttc" id="adoxy_8c_html_a51fd859df7f54aaa2ef64c36c97b548a"><div class="ttname"><a href="#a51fd859df7f54aaa2ef64c36c97b548a">LDR_PIN</a></div><div class="ttdeci">#define LDR_PIN</div><div class="ttdef"><b>Definição</b> doxy.c:16</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a17cff79cc21cc8a442ec2e9b860ad0be" name="a17cff79cc21cc8a442ec2e9b860ad0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17cff79cc21cc8a442ec2e9b860ad0be">&#9670;&#160;</a></span>apagar_led()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void apagar_led </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apaga o LED correspondente ao número de vidas restantes. </p>
+<p>A cada vez que o robô perde uma vida, a função apaga o LED correspondente ao número de vidas. </p>
+<p>&lt; Apaga LED3</p>
+<p>&lt; Apaga LED2</p>
+<p>&lt; Apaga LED1</p>
+<p>&lt; Não faz nada se não houver LEDs restantes</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>                  {</div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="#a91d6b71775ef8d927afa07f53122213e">vidas</a>) {</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">case</span> 3: PORTD &amp;= ~(1 &lt;&lt; 4); <span class="keywordflow">break</span>; </div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">case</span> 2: PORTD &amp;= ~(1 &lt;&lt; 6); <span class="keywordflow">break</span>; </div>
+<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">case</span> 1: PORTD &amp;= ~(1 &lt;&lt; 7); <span class="keywordflow">break</span>; </div>
+<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">default</span>: <span class="keywordflow">break</span>; </div>
+<div class="line"><span class="lineno">  129</span>    }</div>
+<div class="line"><span class="lineno">  130</span>}</div>
+<div class="ttc" id="adoxy_8c_html_a91d6b71775ef8d927afa07f53122213e"><div class="ttname"><a href="#a91d6b71775ef8d927afa07f53122213e">vidas</a></div><div class="ttdeci">volatile int vidas</div><div class="ttdef"><b>Definição</b> doxy.c:63</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função principal do programa. </p>
+<p>Inicializa os periféricos (ADC, USART, Timer0) e entra em um loop infinito aguardando interrupções. </p>
+<p>&lt; Inicializa o ADC</p>
+<p>&lt; Inicializa a USART</p>
+<p>&lt; Inicia a conversão do ADC</p>
+<p>&lt; Inicializa o Timer0</p>
+<p>&lt; Configura PB0 (botão de reset) como entrada</p>
+<p>&lt; Habilita interrupções no grupo PCINT0</p>
+<p>&lt; Habilita interrupção para PB0</p>
+<p>&lt; Habilita interrupção de recepção completa na USART</p>
+<p>&lt; Configura as portas dos motores como saída</p>
+<p>&lt; Configura as portas dos motores como saída</p>
+<p>&lt; Configura as portas dos LEDs e laser como saída</p>
+<p>&lt; Liga todos os LEDs inicialmente</p>
+<p>Interrupção do ADC</p>
+<p>Esta rotina é acionada quando a conversão do ADC é concluída. Ela lê o valor do ADC e verifica se ele está acima do limiar (THRESHOLD). Caso afirmativo, o LED correspondente é apagado, o número de vidas é decrementado, e a invulnerabilidade é ativada. O contador é reiniciado e a conversão do ADC é iniciada novamente.</p>
+<p>Interrupção do Timer0</p>
+<p>Esta rotina é acionada a cada 1 ms pelo Timer0. Ela gerencia o estado de invulnerabilidade e o controle do LED piscante do laser. Durante o tempo de invulnerabilidade, os motores são desligados. Quando o tempo de invulnerabilidade expira, os motores são ligados novamente. Também controla o LED de laser, invertendo seu estado a cada intervalo de piscada.</p>
+<p>Interrupção do botão (PB0)</p>
+<p>Esta rotina é acionada quando o botão é pressionado (PB0). Ela reinicia o contador de vidas e acende os LEDs para indicar que o sistema foi resetado.</p>
+<p>Interrupção de recepção USART</p>
+<p>Esta rotina é acionada quando um dado é recebido via USART. Ela verifica o valor recebido e, dependendo do comando recebido, controla os motores e LEDs do sistema:</p><ul>
+<li>'F' faz os motores irem para frente.</li>
+<li>'B' faz os motores irem para trás.</li>
+<li>'S' para os motores.</li>
+<li>'L' liga o motor 1 e desliga o motor 2.</li>
+<li>'R' liga o motor 2 e desliga o motor 1.</li>
+</ul>
+
+</div>
+</div>
+<a id="ab635a1ffb9027052289e7db2681bf426" name="ab635a1ffb9027052289e7db2681bf426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab635a1ffb9027052289e7db2681bf426">&#9670;&#160;</a></span>reset_leds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reset_leds </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reseta os LEDs para o estado inicial. </p>
+<p>Restaura a contagem de vidas para 3 e liga todos os LEDs novamente. </p>
+<p>&lt; Reinicia a contagem de vidas</p>
+<p>&lt; Liga todos os LEDs</p>
+<div class="fragment"><div class="line"><span class="lineno">  137</span>                  {</div>
+<div class="line"><span class="lineno">  138</span>    <a class="code hl_variable" href="#a91d6b71775ef8d927afa07f53122213e">vidas</a> = 3; </div>
+<div class="line"><span class="lineno">  139</span>    PORTD |= (1 &lt;&lt; 4) | (1 &lt;&lt; 6) | (1 &lt;&lt; 7); </div>
+<div class="line"><span class="lineno">  140</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abcc9ac8b8950089dd783f6e4d1b66648" name="abcc9ac8b8950089dd783f6e4d1b66648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcc9ac8b8950089dd783f6e4d1b66648">&#9670;&#160;</a></span>start_ADC_conversion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void start_ADC_conversion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicia a conversão do ADC. </p>
+<p>Inicia a conversão do valor do LDR. A interrupção ADC será disparada quando a conversão for concluída. </p>
+<p>&lt; Inicia a conversão do ADC</p>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>                            {</div>
+<div class="line"><span class="lineno">  115</span>    ADCSRA |= (1 &lt;&lt; ADSC); </div>
+<div class="line"><span class="lineno">  116</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa94313b5d741dbccb192d9960411dfe8" name="aa94313b5d741dbccb192d9960411dfe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94313b5d741dbccb192d9960411dfe8">&#9670;&#160;</a></span>TIMER0_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TIMER0_init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa o Timer0 para gerar interrupções a cada 1 ms. </p>
+<p>O Timer0 é configurado em modo CTC (Clear Timer on Compare Match) com prescaler 64, gerando uma interrupção a cada 1 milissegundo. Essa interrupção é usada para controlar o estado de invulnerabilidade e o controle do laser piscante. </p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                   {</div>
+<div class="line"><span class="lineno">   76</span>    TCCR0A = (1 &lt;&lt; WGM01);               <span class="comment">// Modo CTC</span></div>
+<div class="line"><span class="lineno">   77</span>    TCCR0B = (1 &lt;&lt; CS01) | (1 &lt;&lt; CS00);  <span class="comment">// Prescaler 64</span></div>
+<div class="line"><span class="lineno">   78</span>    OCR0A = 249;                         <span class="comment">// Configuração para 1 ms com F_CPU = 16 MHz</span></div>
+<div class="line"><span class="lineno">   79</span>    TIMSK0 = (1 &lt;&lt; OCIE0A);              <span class="comment">// Habilita a interrupção de comparação</span></div>
+<div class="line"><span class="lineno">   80</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0246bef1b90eea7a13079a937b5d28bc" name="a0246bef1b90eea7a13079a937b5d28bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0246bef1b90eea7a13079a937b5d28bc">&#9670;&#160;</a></span>USART_INIT()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART_INIT </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa a comunicação USART para transmissão e recepção serial. </p>
+<p>Configura o baudrate, o formato do frame (sem paridade, 1 bit de parada, 8 bits de dados) e habilita as interrupções de recepção e transmissão. </p>
+<p>&lt; Define o byte superior do prescaler</p>
+<p>&lt; Define o byte inferior do prescaler</p>
+<p>&lt; Configura a USART</p>
+<p>&lt; Habilita transmissão e recepção</p>
+<p>&lt; Habilita interrupções globais</p>
+<div class="fragment"><div class="line"><span class="lineno">   88</span>                  {</div>
+<div class="line"><span class="lineno">   89</span>    UBRR0H = <a class="code hl_define" href="#a7a9db3464aa99027082d9daf5f43a95d">BAUD_PRESCALER</a> &gt;&gt; 8; </div>
+<div class="line"><span class="lineno">   90</span>    UBRR0L = <a class="code hl_define" href="#a7a9db3464aa99027082d9daf5f43a95d">BAUD_PRESCALER</a>; </div>
+<div class="line"><span class="lineno">   91</span>    </div>
+<div class="line"><span class="lineno">   92</span>    UCSR0C = <a class="code hl_define" href="#a4c542e8ed07cf102e54e8e3bfae926b7">ASYNCHRONOUS</a> | <a class="code hl_define" href="#a9ce8f2de69cccb63ea888c72cd7507fd">PARITY_MODE</a> | <a class="code hl_define" href="#ad0c3743efc15a1320478871dc92998bd">STOP_BIT</a> | <a class="code hl_define" href="#a29808a8317ec9d7a44c732f4998aed6a">DATA_BIT</a>; </div>
+<div class="line"><span class="lineno">   93</span>    UCSR0B = (1 &lt;&lt; RXEN0) | (1 &lt;&lt; TXEN0); </div>
+<div class="line"><span class="lineno">   94</span>    </div>
+<div class="line"><span class="lineno">   95</span>    sei(); </div>
+<div class="line"><span class="lineno">   96</span>}</div>
+<div class="ttc" id="adoxy_8c_html_a29808a8317ec9d7a44c732f4998aed6a"><div class="ttname"><a href="#a29808a8317ec9d7a44c732f4998aed6a">DATA_BIT</a></div><div class="ttdeci">#define DATA_BIT</div><div class="ttdef"><b>Definição</b> doxy.c:53</div></div>
+<div class="ttc" id="adoxy_8c_html_a4c542e8ed07cf102e54e8e3bfae926b7"><div class="ttname"><a href="#a4c542e8ed07cf102e54e8e3bfae926b7">ASYNCHRONOUS</a></div><div class="ttdeci">#define ASYNCHRONOUS</div><div class="ttdoc">Configura o modo de operação da USART.</div><div class="ttdef"><b>Definição</b> doxy.c:29</div></div>
+<div class="ttc" id="adoxy_8c_html_a7a9db3464aa99027082d9daf5f43a95d"><div class="ttname"><a href="#a7a9db3464aa99027082d9daf5f43a95d">BAUD_PRESCALER</a></div><div class="ttdeci">#define BAUD_PRESCALER</div><div class="ttdef"><b>Definição</b> doxy.c:24</div></div>
+<div class="ttc" id="adoxy_8c_html_a9ce8f2de69cccb63ea888c72cd7507fd"><div class="ttname"><a href="#a9ce8f2de69cccb63ea888c72cd7507fd">PARITY_MODE</a></div><div class="ttdeci">#define PARITY_MODE</div><div class="ttdef"><b>Definição</b> doxy.c:37</div></div>
+<div class="ttc" id="adoxy_8c_html_ad0c3743efc15a1320478871dc92998bd"><div class="ttname"><a href="#ad0c3743efc15a1320478871dc92998bd">STOP_BIT</a></div><div class="ttdeci">#define STOP_BIT</div><div class="ttdef"><b>Definição</b> doxy.c:44</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="a05dcb0c71c08599b3f4eb612dab884d6" name="a05dcb0c71c08599b3f4eb612dab884d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05dcb0c71c08599b3f4eb612dab884d6">&#9670;&#160;</a></span>contador</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t contador = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Contador para controlar o tempo de invulnerabilidade </p>
+
+</div>
+</div>
+<a id="ac06bc193fb94cfa613fb8aae8cf246ea" name="ac06bc193fb94cfa613fb8aae8cf246ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac06bc193fb94cfa613fb8aae8cf246ea">&#9670;&#160;</a></span>contador_laser</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t contador_laser = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Contador para o controle de piscada do laser </p>
+
+</div>
+</div>
+<a id="a509223ea132f4712b0606c9693ade918" name="a509223ea132f4712b0606c9693ade918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a509223ea132f4712b0606c9693ade918">&#9670;&#160;</a></span>invulneravel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t invulneravel = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag indicando se o robô está invulnerável </p>
+
+</div>
+</div>
+<a id="a642a4edcbf8a0eb8cacf9001378d4356" name="a642a4edcbf8a0eb8cacf9001378d4356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a642a4edcbf8a0eb8cacf9001378d4356">&#9670;&#160;</a></span>USART_ReceiveBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t USART_ReceiveBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Variáveis globais de controle. Buffer global para dados recebidos pela USART </p>
+
+</div>
+</div>
+<a id="a91d6b71775ef8d927afa07f53122213e" name="a91d6b71775ef8d927afa07f53122213e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d6b71775ef8d927afa07f53122213e">&#9670;&#160;</a></span>vidas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int vidas = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Contagem de vidas do robô </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
