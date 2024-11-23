@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+![image](https://github.com/user-attachments/assets/8eb86c76-ca48-446a-80d0-e56b129006c0)<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +29,7 @@
     <p>O circuito eletrônico do robô foi projetado utilizando o software <strong>KiCad</strong> e prototipado no <strong>INOVFABLAB</strong>. O código do robô foi desenvolvido em linguagem C, escrito e simulado no software <strong>SimulIDE</strong> para testar e validar o comportamento do sistema.</p>
     <p>Além disso, o robô conta com um módulo Bluetooth, que possibilita o controle remoto através de um aplicativo personalizado, desenvolvido pelo grupo para facilitar a interação e operação do robô.</p>
     <h2>Circuito Eletrônico</h2>
-    
+    <img src="https://i.imgur.com/UgerWMk.jpeg" alt="esquemático do circuito"/>
+    <img src="https://i.imgur.com/6nBmz6L.png" alt="PCI do projeto"/>
 </body>
 </html>
