@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8eb86c76-ca48-446a-80d0-e56b129006c0)<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
